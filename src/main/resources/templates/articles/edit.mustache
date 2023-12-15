@@ -1,0 +1,19 @@
+{{>layouts/header}}
+<!-- form tag는 post 랑 get만 지원 patch, put 지원 x-->>
+{{#article}}
+<form class="container" action="/articles/update" method="post">
+    <input name ="id" type="hidden" value="{{id}}" />
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="title" value="{{title}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content">{{content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/articles/{{id}}">Back</a>
+</form>
+{{/article}}
+
+{{>layouts/footer}}
