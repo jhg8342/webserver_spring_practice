@@ -1,5 +1,6 @@
 package com.example.webserver.service;
 
+import com.example.webserver.dto.ArticleForm;
 import com.example.webserver.entity.Article;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,47 @@ class ArticleServiceTest {
     }
 
     @Test
-    void show() {
+    void show_성공____존재하는_id_입력() {
+        //예상
+        Long id = 1L;
+        Article expected = new Article(id,"111@naver.com","1111");
 
+        //실제값
+        Article article = articleService.show(id);
 
+        //비교
+        assertEquals(expected.toString(),article.toString());
+    }
+
+    @Test
+    void show_실패____존재하지않는_id_입력(){
+        //예상
+        Long id = -1L;
+        Article expected = null;
+
+        //실제값
+        Article article = articleService.show(id);
+
+        //비교
+        assertEquals(expected,article);
+    }
+
+    @Test
+    void create_성공() {
+        //예상
+        String title = "444@naver.com";
+        String content = "4444";
+        ArticleForm dto = new ArticleForm(null,title,content);
+        Article expected = new Article(4L,title,content);
+
+        //실제값
+        Article article = articleService.create(dto);
+
+        //비교
+        assertEquals(expected.toString(),article.toString());
+    }
+
+    @Test
+    void create_실패() {
     }
 }
