@@ -66,7 +66,7 @@ public class ArticleController {
         // 3: 보여줄 페이지를 설정
         return "articles/show";
     }
-
+    //w
     @GetMapping("/articles")
     public String index(Model model){
         // 1: 모든 articles을 가져온다
